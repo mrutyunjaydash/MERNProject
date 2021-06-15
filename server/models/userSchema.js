@@ -26,3 +26,7 @@ const userSchema = new mongoose.Schema({
         required: true
     }
 })
+
+const User = mongoose.model('USER',userSchema);
+
+module.exports = User;
