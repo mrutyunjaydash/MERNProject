@@ -7,14 +7,14 @@ dotenv.config({ path:'./config.env' });
 
 require('./db/conn');
 
+app.use(express.json());
+
+app.use(require('./router/auth'));
+
 //const User = require('./models/userSchema');
 
 const PORT=process.env.PORT;
 
-
-app.get('/',(req,res) => {
-    res.send('Hello world from the server');
-});
 
 app.get('/about',(req,res) => {
     res.send('This is about page');
