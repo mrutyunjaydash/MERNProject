@@ -1,4 +1,5 @@
 const express = require('express');
+const bcrypt = require('bcryptjs');
 const router = express.Router();
 require('../db/conn');
 const User = require('../models/userSchema');
@@ -42,12 +43,19 @@ router.post('/signin',async(req,res) =>{
         return res.status(400).json({error:"Please fill the data"});
     }
     try{
-        const emailvalid = await User.findOne({email:email});
-        const pwdvalid = await User.findOne({password:password});
-        if(!emailvalid || !pwdvalid){
-            return res.status(422).json({error:'Invalid Credentials'});
+        const UserLogin = await User.findOne({email:email});
+        if(UserLogin){
+            const isMatch = await bcrypt.compare(password,UserLogin.password);
+            if(!isMatch){
+                res.status(400).json({error:'Invalid Credentials pass'});
+            }
+            else{
+                res.status(200).json({message:"Logged in Successfully"});
+            }
         }
-        res.status(200).json({message:"Logged in Successfully"});
+        else{
+            res.status(400).json({error:'Invalid Credentials'});
+        }    
     }catch(err){
         console.log(err);
     }
