@@ -5,7 +5,7 @@ import About from './components/About';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Contact from './components/Contact';
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 class App extends Component {
   render() {
