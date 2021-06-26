@@ -2,9 +2,10 @@ import React from 'react';
 
 const Signup = () => {
     return (
-        <div className="signup-form">
+        <div className="signup">
             <div className="container">
-                <div className="row">
+                <div className="row justify-content-md-center">
+                    <div className="col col-lg-3">
                     <form className="center">
                         <div className="form-group">
                         <div className="input-group mb-3">
@@ -38,6 +39,7 @@ const Signup = () => {
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
+                    </div>
                 </div>
             </div>
         </div>
