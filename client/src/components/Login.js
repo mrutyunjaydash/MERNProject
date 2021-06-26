@@ -17,7 +17,7 @@ const Login = () => {
                                 <input type="password" class="form-control" placeholder="Enter Password" aria-label="password" aria-describedby="basic-addon1"></input>
                                 </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-success">Login</button>
                    </form>
                    </div>
                </div>
@@ -26,4 +26,4 @@ const Login = () => {
     );
 };
 
-export default Login;<p>login</p>
+export default Login;
