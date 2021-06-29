@@ -37,5 +37,31 @@ input[type=number] {
 
 .home{
   margin-top:12em;
-  
+
+}
+
+.about_img{
+  width: 70%;
+}
+
+h6{
+  color: rgb(68, 153, 250);
+}
+
+p{
+  color: rgb(68, 153, 250);
+  font-weight: 500;
+}
+
+.profile-ranking{
+  font-size: small;
+}
+
+.profile-head{
+  margin: 0%;
+  font-weight: 700;
+}
+
+.right{
+  float: right;
 }
