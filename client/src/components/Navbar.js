@@ -1,13 +1,15 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
 import {NavLink} from 'react-router-dom';
+import logo from '../images/logo.svg';
 
 const Navbar = () => {
     return (
         <>
             
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div className="navbar-brand">Navbar</div>
+            <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+                <div className="navbar-brand">
+                    <img src={logo} alt='logo' width="30" height="30" className="d-inline-block align-top"></img>
+                </div>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
