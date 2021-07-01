@@ -1,6 +1,9 @@
 import React,{ useState } from 'react';
+import {useHistory} from 'react-router-dom';
 
 const Signup = () => {
+
+    const history = useHistory();
 
     const [ user,setUser ] = useState({
         name:"" , email:"" , phone:"", work:"",password:"",cpassword:""
@@ -13,6 +16,31 @@ const Signup = () => {
         name = e.target.name;
         value = e.target.value;
         setUser({...user, [name] : value})
+    }
+
+    const handleSubmit = async(e) => {
+
+        e.preventDefault();
+        
+        const { name, email, phone, work, password, cpassword } = user;
+        
+        const res = await fetch("/register",{
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify({name, email, phone, work, password, cpassword})
+        });
+
+        const data = await res.json();
+        if(data.status === 422 || !data){
+            window.alert("Invalid");
+        }
+        else{
+            window.alert("Success");
+            history.push('/login'); //redirect to login page on success
+        }
+        
     }
     return (
         <div className="signup">
@@ -80,7 +108,7 @@ const Signup = () => {
                             ></input>
                             </div>
                         </div>
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" className="btn btn-primary" onClick={ handleSubmit }>Submit</button>
                     </form>
                     </div>
                 </div>
