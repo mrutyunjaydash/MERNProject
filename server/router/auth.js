@@ -73,7 +73,7 @@ router.post('/signin',async(req,res) =>{
 
 //about route
 router.get('/about',authenticate,(req,res) => {
-    res.send('This is about page from server');
+    res.send(req.rootUser);
 });
 
 module.exports = router;

@@ -2,10 +2,13 @@ const dotenv = require("dotenv");
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
+const cookieParser = require('cookie-parser');
 
 dotenv.config({ path:'./config.env' });
 
 require('./db/conn');
+
+app.use(cookieParser());
 
 app.use(express.json());
 
