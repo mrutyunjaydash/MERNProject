@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const router = express.Router();
 require('../db/conn');
 const User = require('../models/userSchema');
+const authenticate = require('../middleware/authenticate');
 
 router.get('/',(req,res) => {
     res.send('Hello world from the server');
@@ -70,5 +71,9 @@ router.post('/signin',async(req,res) =>{
     }
 })
 
+//about route
+router.get('/about',authenticate,(req,res) => {
+    res.send('This is about page from server');
+});
 
 module.exports = router;
