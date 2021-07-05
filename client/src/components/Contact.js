@@ -1,6 +1,35 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 
 const Contact = () => {
+
+    const [userData,setUserData] = useState({});
+    
+    const callContact = async() => {
+        try{
+            const res = await fetch("/getData",{
+            method : "GET",
+            headers : {
+                'Content-Type': 'application/json',
+            }
+            });
+
+            const data = await res.json();
+            console.log(data);
+            setUserData(data);
+            
+            if(!res.status === 200 && !data ){
+                const error = new Error(res.error);
+                throw error;
+            }
+        }catch(err){
+            console.log(err);
+        }
+    }
+
+    useEffect(()=>{
+        callContact();
+    });
+
     return (
         <section className="contact">
             <div className="container">
@@ -14,6 +43,7 @@ const Contact = () => {
                                         id="contact_form_name" 
                                         className="form-control"
                                         placeholder="Your Name"
+                                        value = {userData.name}
                                         required="true">
                                     </input>
 
@@ -21,6 +51,7 @@ const Contact = () => {
                                         id="contact_form_email" 
                                         className="form-control"
                                         placeholder="Your Email"
+                                        value = {userData.email}
                                         required="true">
                                     </input>
 
@@ -28,6 +59,7 @@ const Contact = () => {
                                         id="contact_form_phone" 
                                         className="form-control"
                                         placeholder="Phone"
+                                        value = {userData.phone}
                                         required="true">
                                     </input>
                                   
