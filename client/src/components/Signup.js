@@ -33,6 +33,7 @@ const Signup = () => {
         });
 
         const data = await res.json();
+        console.log(data);
         if(data.status === 422 || !data){
             window.alert("Invalid");
         }

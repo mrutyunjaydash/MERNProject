@@ -1,11 +1,11 @@
-import React,{ useEffect } from 'react';
+import React,{ useEffect,useState } from 'react';
 import aboutdp from '../images/aboutdp.jpg';
 import { useHistory } from 'react-router';
 
 const About = () =>{
 
     const history = useHistory();
-
+    const [userData,setUserData] = useState({});
     const callAbout = async() => {
         try{
             const res = await fetch('/about',{
@@ -18,6 +18,7 @@ const About = () =>{
             });
             const data = await res.json();
             console.log(data);
+            setUserData(data);
 
             if(!res.status === 200)
             {
@@ -33,7 +34,7 @@ const About = () =>{
 
     useEffect (() => {
         callAbout();
-    },[]);
+    });
 
     return(
         <section className="about">
@@ -45,8 +46,8 @@ const About = () =>{
                     </div>
                     <div className="col-md-6">
                         <div className="profile-head">
-                            <h5>Mrutyunjay Dash</h5>
-                            <h6>Web Developer</h6>
+                            <h5>{userData.name}</h5>
+                            <h6>{userData.work}</h6>
                             <p className="profile-ranking">RANKINGS:<span>1/10</span></p>
                                 <ul className="nav nav-tabs" role="tablist">
                                     <li className="nav-item">
@@ -68,18 +69,10 @@ const About = () =>{
                         <div class="tab-pane fade show active" id="home" role="tabpanel">
                                 <div className="row">
                                     <div className="col-md-6">
-                                        <label>User ID</label>
+                                        <label>Email</label>
                                     </div>
                                     <div className="col-md-6">
-                                        <p>48764687654867</p>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-md-6">
-                                        <label>Name</label>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <p>Mrutyunjay Dash</p>
+                                        <p>{userData.email}</p>
                                     </div>
                                 </div>
                                 <div className="row">
@@ -87,15 +80,23 @@ const About = () =>{
                                         <label>Name</label>
                                     </div>
                                     <div className="col-md-6">
-                                        <p>Mrutyunjay Dash</p>
+                                        <p>{userData.name}</p>
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col-md-6">
-                                        <label>Name</label>
+                                        <label>Profession</label>
                                     </div>
                                     <div className="col-md-6">
-                                        <p>Mrutyunjay Dash</p>
+                                        <p>{userData.work}</p>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        <label>Phone</label>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <p>{userData.phone}</p>
                                     </div>
                                 </div>
                             </div>
