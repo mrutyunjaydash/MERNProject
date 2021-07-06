@@ -82,4 +82,27 @@ router.get('/getData',authenticate,(req,res) => {
     res.send(req.rootUser);
 });
 
+//contact
+router.post('/contact',authenticate,async(req,res) => {
+    try{
+        const {name , email , phone , message} = req.body;
+
+        if(!name || !email || !phone || !message){
+            console.log("Empty contact details");
+            return res.json({error:"Please fill the details of contact"});
+        }
+        
+        const userContact = await User.findOne({ _id : req.userID });
+
+        if(userContact){
+            const userMessage = await userContact.addmessage(name , email , phone , message);
+            await userContact.save();
+
+            res.status(201).json({message:"userContact Saved Successfully"});
+        }
+    }catch(error){
+        console.log(error);
+    }
+});
+
 module.exports = router;

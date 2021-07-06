@@ -24,10 +24,10 @@ app.get('/about',(req,res) => {
 });
 */
 
-app.get('/contact' , (req,res) => {
+/*app.get('/contact' , (req,res) => {
     res.send('contact');
 })
-
+*/
 /*
 app.get('/signin',(req,res) => {
     res.send('SignIN');
