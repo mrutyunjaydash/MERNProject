@@ -105,4 +105,11 @@ router.post('/contact',authenticate,async(req,res) => {
     }
 });
 
+//logout route
+
+router.get('/signout',(req,res) => {
+    res.clearCookie('jwtoken',{path:'/'})
+    res.status(200).send("LOGOUT");
+});
+
 module.exports = router;

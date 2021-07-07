@@ -37,7 +37,7 @@ const Home = () => {
        <section className="home">
            <div className="container">
                 <div className="align-items-center">
-                    <div className="h1 center">Hi  {userName.name}</div>
+                    <div className="h1 center">{userName.name}</div>
                     <div className="h2 center">
                        { show ? "Glad to see you back!" : "WELCOME TO HOME PAGE" }
                     </div>

@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Contact from './components/Contact';
 import ErrorPage from './components/ErrorPage';
+import Logout from './components/Logout'; 
 
 class App extends Component {
   render() {
@@ -30,6 +31,9 @@ class App extends Component {
           </Route>
           <Route exact path="/signup">
             <Signup />
+          </Route>
+          <Route exact path="/logout">
+            <Logout />
           </Route>
           <Route>
             <ErrorPage />
