@@ -1,47 +1,15 @@
-import React, { Component } from 'react';
-import { Route,Switch } from "react-router-dom";
+import React, { useReducer,createContext  } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import "./App.css";
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import About from './components/About';
-import Login from './components/Login';
-import Signup from './components/Signup';
-import Contact from './components/Contact';
-import ErrorPage from './components/ErrorPage';
-import Logout from './components/Logout'; 
-
-class App extends Component {
-  render() {
+import Navbar from './components/Navbar'; 
+import Routes  from './Routes';
+const App = () => {
     return (
       <>
         <Navbar />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/about">
-            <About />
-          </Route>
-          <Route exact path="/contact">
-            <Contact />
-          </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/signup">
-            <Signup />
-          </Route>
-          <Route exact path="/logout">
-            <Logout />
-          </Route>
-          <Route>
-            <ErrorPage />
-          </Route>
-        </Switch>
+        <Routes />
       </>
     );
-  }
 }
 
 export default App;
