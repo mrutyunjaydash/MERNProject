@@ -1,7 +1,10 @@
-import React,{useState} from 'react';
+import React,{useContext, useState} from 'react';
 import { useHistory } from 'react-router';
+import { UserContext } from '../App';
 
 const Login = () => {
+
+const {state,dispatch} = useContext(UserContext);
 
 const  history = useHistory();
 
@@ -25,6 +28,7 @@ const loginUser = async(e) => {
         window.alert("Invalid Credentials");
     }
     else{
+        dispatch({type:"USER",payload:true});
         window.alert("Login Successfull");
         history.push("/");
     }

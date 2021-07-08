@@ -3,11 +3,18 @@ import 'bootstrap/dist/css/bootstrap.css';
 import "./App.css";
 import Navbar from './components/Navbar'; 
 import Routes  from './Routes';
+import { initialState,reducer } from './reducer/UseReducer';
+
+export const UserContext = createContext();
+
 const App = () => {
-    return (
+    const [state,dispatch] = useReducer(reducer,initialState);
+      return (
       <>
-        <Navbar />
-        <Routes />
+        <UserContext.Provider value={{state,dispatch}}>
+          <Navbar />
+          <Routes />
+        </UserContext.Provider>
       </>
     );
 }
