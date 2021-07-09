@@ -109,7 +109,7 @@ router.post('/contact',authenticate,async(req,res) => {
 
 router.get('/signout',(req,res) => {
     res.clearCookie('jwtoken',{path:'/'})
-    res.status(200).send("LOGOUT");
+    res.status(200).json({message:"LOGGED OUT"});
 });
 
 module.exports = router;

@@ -22,7 +22,7 @@ const Logout = ()  => {
             const data = await res.json();
             console.log(data);
 
-            if(res.status === 200)
+            if(data.status === 200 || data.message)
             {
                 dispatch({type:"USER",payload:false});
                 history.push('/login');
