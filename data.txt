@@ -1,8 +1,0 @@
-{
-    "name":"bapun",
-    "email":"mdash555@gmail.com",
-    "phone":454524154,
-    "work":"Web Dev",
-    "password":"bapun",
-    "cpassword":"bapun"
-}
