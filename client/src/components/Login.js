@@ -24,13 +24,13 @@ const loginUser = async(e) => {
 
     const data = await res.json();
     console.log(data);
-    if(data.status === 400 || !data){
-        window.alert("Invalid Credentials");
+    if(data.status === 400 || data.error || !data){
+        window.alert(data.error);
     }
     else{
         dispatch({type:"USER",payload:true});
         window.alert("Login Successfull");
-        history.push("/");
+        history.push("/");    
     }
 }
 

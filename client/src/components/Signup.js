@@ -34,12 +34,13 @@ const Signup = () => {
 
         const data = await res.json();
         console.log(data);
-        if(data.status === 422 || !data){
-            window.alert("Invalid");
+        if(data.status === 422 || data.error || !data ){
+            window.alert(data.error);
         }
         else{
             window.alert("Success");
             history.push('/login'); //redirect to login page on success
+            
         }
         
     }
