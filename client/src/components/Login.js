@@ -1,6 +1,8 @@
 import React,{useContext, useState} from 'react';
 import { useHistory } from 'react-router';
 import { UserContext } from '../App';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
@@ -29,7 +31,7 @@ const loginUser = async(e) => {
     }
     else{
         dispatch({type:"USER",payload:true});
-        window.alert("Login Successfull");
+        toast("Login Successfull");
         history.push("/");    
     }
 }
@@ -65,6 +67,7 @@ const loginUser = async(e) => {
                    </div>
                </div>
            </div>
+           <ToastContainer />
         </div>
     );
 };
