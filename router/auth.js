@@ -6,10 +6,6 @@ require('../db/conn');
 const User = require('../models/userSchema');
 const authenticate = require('../middleware/authenticate');
 
-router.get('/',(req,res) => {
-    res.send('Hello world from the server');
-});
-
 //register route
 
 router.post('/register', async(req,res) => {
