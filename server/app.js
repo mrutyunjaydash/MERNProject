@@ -16,7 +16,7 @@ app.use(require('./router/auth'));
 
 //const User = require('./models/userSchema');
 
-const PORT=process.env.PORT;
+const PORT=process.env.PORT || 8000;
 
 /*
 app.get('/about',(req,res) => {
@@ -37,6 +37,11 @@ app.get('/signup',(req,res) => {
     res.send('SignUp');
 });
 */
+
+if ( process.env.NODE_ENV == "production"){
+
+    app.use(express.static("client/build"));
+}
 
 app.listen(PORT , () => {
     console.log('server running at port 8000');
